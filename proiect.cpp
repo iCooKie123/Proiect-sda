@@ -22,7 +22,7 @@ numar *adaugare_in_stiva(numar *cap, int a)
 
 
 //functii
-void parcurgere_stiva(numar *cap,int tip)
+void parcurgere_stiva(numar *cap)
 {
     numar *c;
     if (cap == NULL)
@@ -32,20 +32,38 @@ void parcurgere_stiva(numar *cap,int tip)
         c=cap;
         while (c != NULL)
         {
-          if (tip==1){
-            cout<<c->v<<"";
-            c=c->urm;
-          }
-          else{
+
+          
             cout<<c->v<<endl;
             c=c->urm;
-          }
+          
         }
         cout<<endl;
     }
 
 }
 
+void parcurgere_stiva_baze(numar *cap)
+{
+    numar *c;
+    if (cap == NULL)
+        cout<<"Stiva este vida!"<<endl;
+    else
+    {
+        c=cap;
+        while (c != NULL)
+        {
+            if(c->v >9){
+                char lit ='A'+(c->v-10);
+                cout<< lit<<" ";
+            }
+            else
+                cout<<c->v<<" ";
+            c=c->urm;
+        }
+    }
+
+}
 
 
 int main() {
@@ -78,7 +96,7 @@ int main() {
           }
       }
       cout<<"Descompunerea in factori primi este: "<<endl;
-      parcurgere_stiva(cap,0);
+      parcurgere_stiva(cap);
       break;
     }
     case 2:
@@ -103,7 +121,7 @@ int main() {
 
       }
       cout<<"Numarul"<<nr<<" in baza "<<baza<<" este: ";
-      parcurgere_stiva(cap,1);
+      parcurgere_stiva_baze(cap);
       cout<<endl;
       break;
     }
